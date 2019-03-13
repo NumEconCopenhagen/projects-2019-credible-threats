@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
-import os
+#import os
 
-filename = 'projects-2019-credible-threats\dataproject\imdb.csv'
+filename = 'imdb.csv'
 
 test = pd.read_csv(filename, sep=';', encoding='latin-1', escapechar='\\')
 
@@ -13,7 +13,7 @@ for i in range(44,48):
 
 df.drop(columns=['fn','tid','wordsInTitle','url'], inplace=True)
 I = df['imdbRating']
-print(df.loc[[8883]])
+print(df.head(10))
 
 
 
