@@ -13,7 +13,7 @@ for i in range(44,48):
 
 df.drop(columns=['fn','tid','wordsInTitle','url'], inplace=True)
 I = df['imdbRating']
-print(df.head(10))
+print(df.head(8))
 
 
 
