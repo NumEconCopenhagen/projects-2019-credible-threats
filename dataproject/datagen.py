@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-#import os
+import os
 
 filename = 'imdb.csv'
 
@@ -13,9 +13,5 @@ for i in range(44,48):
 
 df.drop(columns=['fn','tid','wordsInTitle','url'], inplace=True)
 I = df['imdbRating']
-print(df.head(8))
+print(df.head(10))
 
-
-
-mean_df = df.groupby('year')['imdbRating'].mean()
-print(mean_df)
