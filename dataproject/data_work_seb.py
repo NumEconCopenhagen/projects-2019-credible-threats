@@ -4,4 +4,4 @@ filename = 'imdb.csv'
 
 df = gen_df(filename)
 
-print(df.head())
+print(df.head(10))
