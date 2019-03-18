@@ -27,3 +27,7 @@ for j,i in enumerate(['Action','Western','War','Drama'],1):
     
 plt.show()
 
+<<<<<<< HEAD
+print(df.head(10))
+=======
+>>>>>>> c8f9a374e717937217aca2e0270d6457c7e92796

@@ -47,7 +47,7 @@ print(df.head(8))
 print(df.dtypes)
 
 # Summary Statistics 
-df[["year", "imdbRating", "duration", "nrOfWins", "nrOfNominations"]].describe() 
+print(df[["year", "imdbRating", "duration", "nrOfWins", "nrOfNominations"]].describe())
 
 
 # Generating genre list
@@ -64,19 +64,60 @@ for i in genre:
     print(f'Sum of {i}: {sum:.0f}')
 
 
-# Figures 
-# Histogram (Make interactive with Dropdown of genres)
-plt.hist(df["imdbRating"], bins=10)
+#####################################################################################
+# Figures
+#####################################################################################
 
-def histogram(variable, bins=10):
-        plt.hist(variable, bins=bins)
+# Histogram
+import seaborn as sns
+sns.set()
+
+# plt.hist(df["imdbRating"], bins=10)
+
+
+# Histogram by genre
+df_hist = df.loc[df["Comedy"] == 1]
+plt.hist(df_hist["imdbRating"], bins=10)
+
+
+# Interactive Histogram
+def histogram(variable, genre, bins_num):
+        df_hist = df.loc[df[genre] == 1]
+        plt.hist(df_hist[variable], bins=bins_num)
     
         # Labels
         plt.title("Histogram")
         plt.ylabel("Number")
         plt.xticks(range(1,11))
     
-histogram(df["imdbRating"])
+# histogram("imdbRating", "Comedy")   # Remember quote marks around variable names
+# Consider writing an error code indicating to use quote marks
+
+
+def hist_interactive(variable): 
+    widgets.interact(histogram, 
+    variable = widgets.fixed(variable), 
+    
+    # Genre Dropdown
+    genre = widgets.Dropdown(
+    description="Genre", 
+    options=genre, 
+    value="Comedy"),
+    
+    # Bins slider 
+    bins_num=widgets.IntSlider(
+    value=10,
+    description="Bins", 
+    min=1,
+    max=50, 
+    step=1,
+    disabled=False,
+    continuous_update=False)
+    ); 
+
+hist_interactive("imdbRating")
+
+#####################################################################################
 
 # Scatter X against years
 def scatter(variable):
@@ -87,3 +128,8 @@ def scatter(variable):
     plt.xlabel("Year")
 
 scatter(df["imdbRating"])    
+
+
+print(df[df["nrOfWins"] == 137])
+print(df[df["nrOfNominations"] == 137])
+
