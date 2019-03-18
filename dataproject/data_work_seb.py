@@ -6,7 +6,7 @@ import numpy as np
 filename = 'imdb.csv'
 
 df = gen_df(filename)
-I = df['year']<1940
+I = df['year']<1920
 df.drop(df[I].index,inplace=True)
 df['year'] = df['year'].astype(int)
 
