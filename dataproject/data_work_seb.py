@@ -9,22 +9,27 @@ df = gen_df(filename)
 df['year'] = df['year'].astype(int)
 
 def plot_1(df):
-
-    fig,ax = plt.subplots()
+    
+    df['count'] = 1
+    df['movies_year'] = df.groupby('year')['count'].transform(lambda x: x.sum())  
 
     # Plot year sum of different genres
-    for j,i in enumerate(['Action','Western','War','Animation'],1):
-        y_sum = df.groupby('year')[i].sum()
+    for j,i in enumerate(['Crime','Western','War','Biography'],1):
+        df[f'{i}_year'] = df.groupby('year')[i].transform(lambda x: x.sum())
+        df[f'{i}_share'] = df[f'{i}_year']/df['movies_year']
+
+        y_share = df.groupby('year')[f'{i}_share'].first()
         
         ax = plt.subplot(2,2,j)
-        y_sum.plot(kind='bar', color='black')
+        y_share.plot(kind='line', color='black', sharex='col', sharey='row')
 
         # Keeps every 10th label
-        n = 10  
-        [l.set_visible(False) for (i,l) in enumerate(ax.xaxis.get_ticklabels()) if i % n != 0]
+        #n = 10  
+        #[l.set_visible(False) for (i,l) in enumerate(ax.xaxis.get_ticklabels()) if i % n != 0]
 
         plt.xlabel('year')
-        plt.ylabel(i)
+        plt.ylabel('share of movies')
+        plt.title(i)
         
     plt.show()
 
@@ -39,10 +44,8 @@ def plot_2(df):
         x = df.loc[I, 'ratingCount']
         y = df.loc[I, 'nrOfWins']
 
-        plt.get_xaxis().set_major_formatter(plt.FuncFormatter(lambda x: '{:,}').format(int(x)))
-
     plt.legend(loc='upper')
     plt.show()
 
-plot_2(df)
-#print(df.ratingCount.head())
+print(list(df))
+plot_1(df)
