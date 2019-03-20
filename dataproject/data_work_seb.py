@@ -3,6 +3,7 @@ import matplotlib as ax
 from data_gen_test import gen_df
 import numpy as np
 
+
 filename = 'imdb.csv'
 
 df = gen_df(filename)
@@ -13,7 +14,7 @@ df['year'] = df['year'].astype(int)
 fig,ax = plt.subplots()
 
 # Plot year sum of different genres
-for j,i in enumerate(['Action','Western','War','Drama'],1):
+for j,i in enumerate(['Action','Western','War','Animation'],1):
     y_sum = df.groupby('year')[i].sum()
     
     ax = plt.subplot(2,2,j)
@@ -25,6 +26,15 @@ for j,i in enumerate(['Action','Western','War','Drama'],1):
     plt.xlabel('year')
     plt.ylabel(i)
     
+#plt.show()
+
+# Search for string in dataframe
+print(list(df))
+df['NomWinRatio'] = df['nrOfWins']/df['nrOfNominations']
+I = df['NomWinRatio'] <= 0.2
+#print(df.loc[I])
+df.plot.scatter(x='NomWinRatio', y='nrOfNewsArticles')
 plt.show()
 
-print(df.head(10))
+#print(df[df['title'].str.contains('')])
+#print(df['nrofNewsArticles'])
