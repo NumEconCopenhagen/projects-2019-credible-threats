@@ -33,11 +33,15 @@ def gen_df(filename):
     # Transform duration from seconds to hours
     df['duration'] = df['duration']/60**2
 
-    
-    I = (df['year']>=1920) & (df['year']<=2014)
+    # Drop years before 1920 and 2014 because of few obervations
+    I = (df['year']>=1920) & (df['year']<=2013)
     df = df.loc[I]
+
+    # Change the type of 'year' to integer
+    df['year'] = df['year'].astype(int)    
+    
+    # Sort observations and reset index
     df.sort_values('year', inplace=True)
     df.reset_index(inplace=True)
-
 
     return df
