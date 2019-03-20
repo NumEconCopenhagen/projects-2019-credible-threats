@@ -19,7 +19,7 @@ for j,i in enumerate(['Action','Western','War','Drama'],1):
     ax = plt.subplot(2,2,j)
     y_sum.plot(kind='bar')
 
-    n = 10  # Keeps every 7th label
+    n = 10  # Keeps every 10th label
     [l.set_visible(False) for (i,l) in enumerate(ax.xaxis.get_ticklabels()) if i % n != 0]
 
     plt.xlabel('year')
@@ -27,7 +27,4 @@ for j,i in enumerate(['Action','Western','War','Drama'],1):
     
 plt.show()
 
-<<<<<<< HEAD
 print(df.head(10))
-=======
->>>>>>> c8f9a374e717937217aca2e0270d6457c7e92796
