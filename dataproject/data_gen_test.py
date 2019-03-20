@@ -37,6 +37,7 @@ def gen_df(filename):
     I = (df['year']>=1920) & (df['year']<=2014)
     df = df.loc[I]
     df.sort_values('year', inplace=True)
+    df.reset_index(inplace=True)
 
 
     return df
