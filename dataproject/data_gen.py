@@ -50,7 +50,7 @@ def gen_df(filename):
 
     imdb['decade'] = ''
     for i,start in enumerate(year_list):
-    end = start+10
-    imdb.loc[(imdb['year'] >= start) & (imdb['year'] < end), 'decade'] = f'{year_list[i]}s'
+        end = start+10
+        imdb.loc[(imdb['year'] >= start) & (imdb['year'] < end), 'decade'] = f'{year_list[i]}s'
 
     return df
