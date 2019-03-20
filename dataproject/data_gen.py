@@ -44,4 +44,13 @@ def gen_df(filename):
     df.sort_values('year', inplace=True)
     df.reset_index(inplace=True)
 
+
+    # Generating variable that shows the decade (as a string)
+    year_list = [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
+
+    imdb['decade'] = ''
+    for i,start in enumerate(year_list):
+    end = start+10
+    imdb.loc[(imdb['year'] >= start) & (imdb['year'] < end), 'decade'] = f'{year_list[i]}s'
+
     return df
