@@ -17,7 +17,7 @@ for j,i in enumerate(['Action','Western','War','Drama'],1):
     y_sum = df.groupby('year')[i].sum()
     
     ax = plt.subplot(2,2,j)
-    y_sum.plot(kind='bar')
+    y_sum.plot(kind='bar', color='black')
 
     n = 10  # Keeps every 10th label
     [l.set_visible(False) for (i,l) in enumerate(ax.xaxis.get_ticklabels()) if i % n != 0]
