@@ -34,9 +34,9 @@ def gen_df(filename):
     df['duration'] = df['duration']/60**2
 
 
-    I = (imdb['year']>=1920) & (imdb['year']<=2014)
-    imdb = imdb.loc[I]
-    imdb.sort_values('year', inplace=True)
+    I = (df['year']>=1920) & (df['year']<=2014)
+    df = df.loc[I]
+    df.sort_values('year', inplace=True)
 
 
     return df
