@@ -15,7 +15,7 @@ def gen_df(filename):
     for i in range(44,48):
         df.drop(columns=[f'Unnamed: {i}'], inplace=True)
 
-    df.drop(columns=['fn','tid','wordsInTitle','url'], inplace=True)
+    df.drop(columns=['fn','wordsInTitle','url'], inplace=True)
 
     # Keep only observations of movie-type
     I = df['type'] == 'video.movie'

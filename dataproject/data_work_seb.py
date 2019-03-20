@@ -48,7 +48,12 @@ def plot_2(df):
     plt.show()
 
 def top_bottom_movies(df):
-    top = df.sort_values('imdbRating')
-    print(top.head())
+    # Condition on minimum number of ratings
+    I = df['ratingCount'] >= 2000
+
+    top = df.sort_values('imdbRating', ascending=False)[I]
+    bottom = df.sort_values('imdbRating', ascending=True)[I]
+    print(top.head(3), bottom.head(3))
+
 
 top_bottom_movies(df)
