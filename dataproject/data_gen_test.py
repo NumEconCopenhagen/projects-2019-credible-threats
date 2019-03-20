@@ -1,8 +1,6 @@
 import numpy as np
 import pandas as pd
 #import os
-start_year = 1920
-end_year = 2014
 
 filename = 'imdb.csv'
 
@@ -37,7 +35,7 @@ def gen_df(filename):
     df['duration'] = df['duration']/60**2
 
 
-    I = (imdb['year']>=start_year) & (imdb['year']<=end_year)
+    I = (imdb['year']>=1920) & (imdb['year']<=2014)
     imdb = imdb.loc[I]
     imdb.sort_values('year', inplace=True)
 
