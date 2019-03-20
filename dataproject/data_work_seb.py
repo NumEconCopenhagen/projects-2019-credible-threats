@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt 
 from data_gen import gen_df
 import numpy as np
+import requests
 
 
 filename = 'imdb.csv'
@@ -53,7 +54,9 @@ def top_bottom_movies(df):
 
     top = df.sort_values('imdbRating', ascending=False)[I]
     bottom = df.sort_values('imdbRating', ascending=True)[I]
-    print(top.head(3), bottom.head(3))
+    print(top.head(3), str('\n'), bottom.head(3))
+
+    # Get English titles 
 
 
 top_bottom_movies(df)
