@@ -47,5 +47,8 @@ def plot_2(df):
     plt.legend(loc='upper')
     plt.show()
 
-print(list(df))
-plot_1(df)
+def top_bottom_movies(df):
+    top = df.sort_values('imdbRating')
+    print(top.head())
+
+top_bottom_movies(df)
