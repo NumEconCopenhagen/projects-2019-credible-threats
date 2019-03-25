@@ -41,7 +41,7 @@ print(df.head(8))
 
 
 #####################################################################################
-# Data pjat 
+# Data Work
 
 # Data types 
 print(df.dtypes)
@@ -115,6 +115,7 @@ def hist_interactive(variable):
     continuous_update=False)
     ); 
 
+plt.show()
 hist_interactive("imdbRating")
 
 #####################################################################################
