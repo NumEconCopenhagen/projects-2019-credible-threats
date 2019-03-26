@@ -3,7 +3,7 @@
 
 #df = gen_df(filename)
 
-def genre_share_fig():
+def genre_share_fig(df):
 
     def _plot_1(df,genre,timevar):
 
