@@ -1,7 +1,7 @@
 
-filename = 'imdb.csv'
+#filename = 'imdb.csv'
 
-df = gen_df(filename)
+#df = gen_df(filename)
 
 def genre_share_fig():
 
