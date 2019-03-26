@@ -47,4 +47,4 @@ def plot_1(df):
                     description = 'Timevariable',
                     disabled = False))
 
-plot_1(df)
+#plot_1(df)
