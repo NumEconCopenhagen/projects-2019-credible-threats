@@ -13,30 +13,39 @@ df = gen_df(filename)
 alphas = np.random.uniform(0,1,3)
 betas = [1,2,3]
 
-def u_fun(x1,x2,x3,pars):
-        return x1**pars[0]+x2**pars[1]+x3**pars[2]
+# Score-function for testing
+def u_fun(xs,pars):
+        util = xs.iloc[:,0]*pars[0]+xs.iloc[:,1]*pars[1]+xs.iloc[:,29]**pars[2]
+        return 10*np.exp(util)/(1+np.exp(util))
 
+# Building dataframe containing values for score-function
+df_xs = pd.DataFrame()
 df_xs = df.iloc[:,13:41]
-df_xs['Rating'] = df['imdbRating']
 df_xs['Duration'] = df['duration']
-df_xs = df_xs[:20]
+df_xs['Rating'] = df['imdbRating']
 
+# Function that calculates minimum squared distance
 def obj_fun(df_xs,pars):
-        df_xs['Est_rating'] = np.exp(u_fun(df_xs['Action'],df_xs['Drama'],df_xs['Duration'],pars))/(1+np.exp(u_fun(df_xs['Action'],df_xs['Drama'],df_xs['Duration'],pars)))
-        df_xs['Difference'] = df_xs['Rating']-df_xs['Est_rating']
+        df_xs['Est_rating'] = u_fun(df_xs,pars)
+        df_xs['Difference'] = (df_xs['Rating']-df_xs['Est_rating'])**2
+        print(df_xs[['Est_rating','Rating','Difference']].head())
         return df_xs['Difference'].sum()
 
+# Testing from here
+obj_fun(df_xs,alphas)
+obj_fun(df_xs,[0,0,0])
+"""
 min_fun = lambda a: obj_fun(df_xs,a)
 
 bnds = ((0,1),(0,1),(0,1))
 
-result = optimize.minimize(min_fun,alphas,method='BFGS',bounds=bnds)
+result = optimize.minimize(min_fun,alphas,method='SLSQP',bounds=bnds)
 
-print(result.x, alphas)
+print(alphas,result.x)
 
 print(obj_fun(df_xs,alphas),obj_fun(df_xs,result.x))
 
-
+"""
 
 """
 n = 300
