@@ -28,24 +28,24 @@ df_xs['Rating'] = df['imdbRating']
 def obj_fun(df_xs,pars):
         df_xs['Est_rating'] = u_fun(df_xs,pars)
         df_xs['Difference'] = (df_xs['Rating']-df_xs['Est_rating'])**2
-        print(df_xs[['Est_rating','Rating','Difference']].head())
+        #print(df_xs[['Est_rating','Rating','Difference']].head())
         return df_xs['Difference'].sum()
 
 # Testing from here
 obj_fun(df_xs,alphas)
 obj_fun(df_xs,[0,0,0])
-"""
+
 min_fun = lambda a: obj_fun(df_xs,a)
 
-bnds = ((0,1),(0,1),(0,1))
+bnds = ((0,None),(0,None),(0,None))
 
-result = optimize.minimize(min_fun,alphas,method='SLSQP',bounds=bnds)
+result = optimize.minimize(min_fun,alphas,method='SLSQP')
 
 print(alphas,result.x)
 
 print(obj_fun(df_xs,alphas),obj_fun(df_xs,result.x))
 
-"""
+
 
 """
 n = 300
