@@ -41,6 +41,7 @@ bnds = ((0,None),(0,None),(0,None))
 
 result = optimize.minimize(min_fun,alphas,method='SLSQP')
 
+
 print(alphas,result.x)
 
 print(obj_fun(df_xs,alphas),obj_fun(df_xs,result.x))
