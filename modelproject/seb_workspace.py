@@ -10,9 +10,32 @@ filename = 'imdb.csv'
 df = gen_df(filename)
 
 # Parameters
-alphas = np.zeros(size=3)
+alphas = np.random.uniform(0,1,3)
+betas = [1,2,3]
 
-print(alphas)
+def u_fun(x1,x2,x3,pars):
+        return x1**pars[0]+x2**pars[1]+x3**pars[2]
+
+df_xs = df.iloc[:,13:41]
+df_xs['Rating'] = df['imdbRating']
+df_xs['Duration'] = df['duration']
+df_xs = df_xs[:20]
+
+def obj_fun(df_xs,pars):
+        df_xs['Est_rating'] = np.exp(u_fun(df_xs['Action'],df_xs['Drama'],df_xs['Duration'],pars))/(1+np.exp(u_fun(df_xs['Action'],df_xs['Drama'],df_xs['Duration'],pars)))
+        df_xs['Difference'] = df_xs['Rating']-df_xs['Est_rating']
+        return df_xs['Difference'].sum()
+
+min_fun = lambda a: obj_fun(df_xs,a)
+
+bnds = ((0,1),(0,1),(0,1))
+
+result = optimize.minimize(min_fun,alphas,method='BFGS',bounds=bnds)
+
+print(result.x, alphas)
+
+print(obj_fun(df_xs,alphas),obj_fun(df_xs,result.x))
+
 
 
 """
