@@ -18,21 +18,21 @@ y2 = np.random.uniform(0,1,n2)
 time1 = list()
 time2 = list()
 
-for i in range(10000):
+for i in range(5000):
         start1 = time.time()
         plt1 = plt.plot(x1,y1)
         end1 = time.time()-start1
         time1.append(end1)
 
-for i in range(10000):
+for i in range(5000):
         start2 = time.time()
         plt2 = plt.plot(x2,y2)
         end2 = time.time()-start2
         time2.append(end2)
 
 
-print(f'Plot with {n1} values: {sum(time1)/len(time1):.3f} seconds')
-print(f'Plot with {n2} values: {sum(time2)/len(time2):.3f} seconds')
+print(f'Plot with {n1} values: {sum(time1)/len(time1):.7f} seconds')
+print(f'Plot with {n2} values: {sum(time2)/len(time2):.7f} seconds')
 
 """
 filename = 'imdb.csv'
