@@ -5,7 +5,12 @@ import time
 import scipy.optimize as optimize
 from data_gen import gen_df 
 import matplotlib.pyplot as plt
+import math
 
+result = math.sqrt(4)
+print(result)
+
+"""
 n1 = 100
 n2 = 10000
 
@@ -33,7 +38,7 @@ for i in range(5000):
 
 print(f'Plot with {n1} values: {sum(time1)/len(time1):.7f} seconds')
 print(f'Plot with {n2} values: {sum(time2)/len(time2):.7f} seconds')
-
+"""
 """
 filename = 'imdb.csv'
 
