@@ -1,7 +1,7 @@
 # Credible Threats
 ## This is Credible Threats' exam turn-in.
-### Group members:
-* SWC924
+### Group members (exam number):
+* 37
 * FQD618
 * HNG309
 
