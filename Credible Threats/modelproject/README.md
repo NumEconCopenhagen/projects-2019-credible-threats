@@ -1,0 +1,3 @@
+# Modelproject
+Our model project tries to estimate preferences for movies using data on movie ratings, genres production year, etc. from IMDB. As you will see in the notebook our model is solve by minimizing the sum of the squared differences between the ratings from the model and the actual ratings.
+All you need to see our project is the notebook "Python's Next Top Model.ipynb". It includes all the code and all the figures. The data is the 'imdb.csv' and is the second file in this folder. All the subfolders are our temporary code-files, and they are NOT necessary to use because everything is collected in "Python's Next Top Model.ipynb".
