@@ -3,7 +3,7 @@
 ### Group members (exam number):
 * 37
 * FQD618
-* HNG309
+* 30
 
 It contains the following three projects:
 * Dataproject: "Monty Python"
@@ -17,4 +17,4 @@ It contains the following three projects:
 
 Each of the projects are contained in their own folder.
 
-Furthermore it contains an overview of each members feedback given to other projects in the file: "feedback.txt"
+Furthermore it contains an overview of each members feedback given to other projects in the file: "Feedback.txt"
