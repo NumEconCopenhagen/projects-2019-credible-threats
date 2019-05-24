@@ -1,9 +1,9 @@
 # Credible Threats
 ## This is Credible Threats' exam turn-in.
 ### Group members (exam number):
-* 37
-* FQD618
 * 30
+* 37
+* 38
 
 It contains the following three projects:
 * Dataproject: "Monty Python"
