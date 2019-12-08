@@ -1,9 +1,9 @@
 # Credible Threats
 ## This is Credible Threats' exam turn-in.
 ### Group members (exam number):
+* 30
 * 37
-* FQD618
-* HNG309
+* 38
 
 It contains the following three projects:
 * Dataproject: "Monty Python"
@@ -17,4 +17,4 @@ It contains the following three projects:
 
 Each of the projects are contained in their own folder.
 
-Furthermore it contains an overview of each members feedback given to other projects in the file: "feedback.txt"
+Furthermore it contains an overview of each members feedback given to other projects in the file: "Feedback.txt"
